@@ -39,6 +39,8 @@ def checkin(url, email, password):
     except requests.exceptions.ConnectionError as e:
         print(f'对 {url} 的链接测试失败，请检查该链接是否可以正常访问：{e}')
         return
+    requests.get(url)
+    
     print(f'开始对 {url} 进行签到……')
     email = email.split('@')
     email = email[0] + '%40' + email[1]
